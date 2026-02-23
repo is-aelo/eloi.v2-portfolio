@@ -8,6 +8,12 @@ import { ModeToggle } from "@/components/mode-toggle"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
 
+const mainNavItems = [
+  { name: "Profile", href: "/", icon: Icons.about },
+  { name: "Projects", href: "/projects", icon: Icons.Stack },
+  { name: "Contact", href: "/contact", icon: Icons.Mail },
+]
+
 const projectCategories = [
   { name: "Brand Identity", href: "/projects/branding" },
   { name: "Creative / Experimental", href: "/projects/creative" },
@@ -68,50 +74,50 @@ export function Navbar() {
         className="flex h-12 items-stretch border border-foreground bg-background shadow-[4px_4px_0px_0px_var(--foreground)]"
       >
         <div className="flex items-stretch font-mono">
-          {/* Profile */}
-          <Link
-            href="/"
-            className={cn(
-              "flex items-center px-6 text-[10px] font-bold uppercase tracking-[0.2em] border-r border-foreground transition-all",
-              pathname === "/" 
-                ? "bg-primary text-primary-foreground" 
-                : "hover:bg-primary/5"
-            )}
-          >
-            Profile
-          </Link>
+          {mainNavItems.map((item) => {
+            const isActive = pathname === item.href || (item.name === "Projects" && pathname.includes("/projects"))
+            const Icon = item.icon
 
-          {/* Projects Toggle */}
-          <button
-            onClick={() => setIsProjectsOpen(!isProjectsOpen)}
-            className={cn(
-              "flex items-center gap-2.5 px-6 text-[10px] font-bold uppercase tracking-[0.2em] border-r border-foreground transition-all",
-              isProjectsOpen || pathname.includes("/projects") 
-                ? "bg-primary text-primary-foreground" 
-                : "hover:bg-primary/5"
-            )}
-          >
-            Projects
-            <motion.div 
-              animate={{ rotate: isProjectsOpen ? 0 : 180 }}
-              className="opacity-60"
-            >
-              <Icons.Chevron size={12} />
-            </motion.div>
-          </button>
+            if (item.name === "Projects") {
+              return (
+                <button
+                  key={item.name}
+                  onClick={() => setIsProjectsOpen(!isProjectsOpen)}
+                  className={cn(
+                    "flex items-center gap-2.5 px-4 md:px-6 text-[10px] font-bold uppercase tracking-[0.2em] border-r border-foreground transition-all",
+                    isActive 
+                      ? "bg-primary text-primary-foreground" 
+                      : "hover:bg-primary/5"
+                  )}
+                >
+                  <Icon size={14} className="shrink-0" />
+                  <span className="hidden md:block">{item.name}</span>
+                  <motion.div 
+                    animate={{ rotate: isProjectsOpen ? 0 : 180 }}
+                    className="opacity-60 hidden md:block"
+                  >
+                    <Icons.Chevron size={12} />
+                  </motion.div>
+                </button>
+              )
+            }
 
-          {/* Contact */}
-          <Link
-            href="/contact"
-            className={cn(
-              "flex items-center px-6 text-[10px] font-bold uppercase tracking-[0.2em] transition-all",
-              pathname === "/contact" 
-                ? "bg-primary text-primary-foreground" 
-                : "hover:bg-primary/5"
-            )}
-          >
-            Contact
-          </Link>
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={cn(
+                  "flex items-center gap-2.5 px-4 md:px-6 text-[10px] font-bold uppercase tracking-[0.2em] border-r border-foreground transition-all",
+                  isActive 
+                    ? "bg-primary text-primary-foreground" 
+                    : "hover:bg-primary/5"
+                )}
+              >
+                <Icon size={14} className="shrink-0" />
+                <span className="hidden md:block">{item.name}</span>
+              </Link>
+            )
+          })}
         </div>
 
         {/* Square Toggle Box */}
