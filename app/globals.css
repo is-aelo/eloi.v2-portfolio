@@ -25,38 +25,37 @@
 :root {
   --radius: 0.625rem;
 
-  /* Your Original Palette: #FCF5EE, #850E35, #EE6983, #FFC4C4 */
-  --background: oklch(0.97 0.01 60);       /* Cream */
-  --foreground: oklch(0.35 0.15 10);       /* Deep Maroon */
+  /* Light Theme */
+  --background: oklch(0.98 0.01 60);       /* Soft Cream */
+  --foreground: oklch(0.25 0.08 15);       /* Deep Earthy Maroon */
   
-  --primary: oklch(0.65 0.18 5);          /* Muted Red */
-  --primary-foreground: oklch(0.97 0.01 60);
+  --primary: oklch(0.55 0.15 15);          /* Muted Rose-Red */
+  --primary-foreground: oklch(0.98 0.01 60);
   
-  --accent: oklch(0.88 0.08 10);          /* Soft Pink */
-  --accent-foreground: oklch(0.35 0.15 10);
+  --accent: oklch(0.92 0.04 20);           /* Subtle Warm Tint */
+  --accent-foreground: oklch(0.25 0.08 15);
 
-  /* Borders: Ginawa nating katimpla ng maroon pero subtle lang */
-  --border: oklch(0.35 0.15 10 / 20%);
-  --input: oklch(0.35 0.15 10 / 10%);
-  --ring: oklch(0.65 0.18 5);
+  --border: oklch(0.25 0.08 15 / 15%);
+  --input: oklch(0.25 0.08 15 / 8%);
+  --ring: oklch(0.55 0.15 15);
 
-  /* Font Fallbacks */
   --font-geist-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-geist-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
 .dark {
-  /* Inverted for Dark Mode */
-  --background: oklch(0.20 0.08 10);       /* Darker Deep Maroon */
-  --foreground: oklch(0.97 0.01 60);       /* Cream Text */
+  /* Dark Theme - Desaturated for Eye Comfort */
+  --background: oklch(0.14 0.02 20);       /* Deep Charcoal Maroon */
+  --foreground: oklch(0.92 0.02 60);       /* Off-White Cream */
   
-  --primary: oklch(0.75 0.15 10);
-  --primary-foreground: oklch(0.20 0.08 10);
+  --primary: oklch(0.65 0.12 20);          /* Desaturated Soft Red */
+  --primary-foreground: oklch(0.14 0.02 20);
   
-  --accent: oklch(0.35 0.15 10);
-  --accent-foreground: oklch(0.97 0.01 60);
+  --accent: oklch(0.22 0.04 20);           /* Muted Surface Gray */
+  --accent-foreground: oklch(0.92 0.02 60);
 
-  --border: oklch(0.97 0.01 60 / 20%);
+  --border: oklch(0.92 0.02 60 / 12%);
+  --ring: oklch(0.65 0.12 20);
 }
 
 @layer base {
@@ -64,7 +63,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground antialiased transition-colors duration-300 font-sans;
+    @apply bg-background text-foreground antialiased transition-colors duration-500 font-sans;
   }
 }
 

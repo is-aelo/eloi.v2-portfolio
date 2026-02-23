@@ -1,4 +1,7 @@
 import { 
+  User, 
+  Briefcase, 
+  Palette, 
   ArrowUpRight, 
   Mail, 
   MapPin, 
@@ -12,6 +15,12 @@ import {
 } from 'lucide-react'
 
 export const Icons = {
+  // Navigation Icons (Gagamitin sa Navbar mo)
+  about: User,
+  work: Briefcase,
+  design: Palette,
+
+  // General UI Icons
   Arrow: ArrowUpRight,
   Mail: Mail,
   Location: MapPin,
