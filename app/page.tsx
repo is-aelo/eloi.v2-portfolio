@@ -203,21 +203,21 @@ export default function LandingPage() {
             <FooterCTA email={profile?.email} />
 
             {/* --- BACK TO TOP --- */}
-            <motion.div variants={itemVariants} className="flex justify-center pt-8">
+            <motion.div variants={itemVariants} className="flex justify-center pt-20">
               <button 
                 onClick={scrollToTop}
-                className="group flex flex-col items-center gap-3 font-mono text-[9px] uppercase tracking-[0.3em] opacity-40 hover:opacity-100 transition-opacity"
+                className="group flex flex-col items-center gap-4 font-mono text-[9px] uppercase tracking-[0.3em] opacity-40 hover:opacity-100 transition-all duration-500"
               >
-                <div className="w-px h-12 bg-foreground/20 group-hover:bg-primary transition-colors relative overflow-hidden">
-                   <motion.div 
-                    initial={{ y: "100%" }}
-                    whileHover={{ y: "-100%" }}
-                    transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-                    className="absolute inset-0 bg-primary"
-                   />
+                <div className="w-px h-16 bg-foreground/10 group-hover:bg-primary transition-colors relative overflow-hidden">
+                  <motion.div 
+                    initial={{ y: "-100%" }}
+                    animate={{ y: "100%" }}
+                    transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
+                    className="absolute inset-0 w-full h-1/2 bg-gradient-to-b from-transparent via-primary to-transparent"
+                  />
                 </div>
                 <div className="flex items-center gap-2">
-                  {Icons.arrowUp && <Icons.arrowUp size={14} />}
+                  {Icons.arrowUp && <Icons.arrowUp size={14} className="group-hover:-translate-y-1 transition-transform" />}
                   Back to Top
                 </div>
               </button>

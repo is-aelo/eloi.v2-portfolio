@@ -17,9 +17,10 @@ const mainNavItems = [
 const projectCategories = [
   { name: "Brand Identity", href: "/projects/branding" },
   { name: "Creative / Experimental", href: "/projects/creative" },
+  { name: "Layout", href: "/projects/layout" },
   { name: "Marketing & Ads", href: "/projects/marketing" },
   { name: "UI/UX", href: "/projects/ux" },
-  { name: "Web Development", href: "/projects/dev" },
+  { name: "Software Development", href: "/projects/dev" },
 ]
 
 export function Navbar() {
