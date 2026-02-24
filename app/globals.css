@@ -5,6 +5,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-instrument); /* Updated handle */
   
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
@@ -23,42 +24,46 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0px; 
 
-  /* Light Theme */
-  --background: oklch(0.98 0.01 60);       /* Soft Cream */
-  --foreground: oklch(0.25 0.08 15);       /* Deep Earthy Maroon */
+  /* Light Theme - Updated to Creamy White */
+  /* oklch(0.98 0.01 60) -> oklch(0.97 0.015 80) */
+  --background: oklch(0.97 0.015 80);
+  --foreground: oklch(0.25 0.08 15);
   
-  --primary: oklch(0.55 0.15 15);          /* Muted Rose-Red */
-  --primary-foreground: oklch(0.98 0.01 60);
+  --primary: oklch(0.55 0.15 15);
+  --primary-foreground: oklch(0.97 0.015 80);
   
-  --accent: oklch(0.92 0.04 20);           /* Subtle Warm Tint */
+  --accent: oklch(0.92 0.04 20);
   --accent-foreground: oklch(0.25 0.08 15);
 
-  --border: oklch(0.25 0.08 15 / 15%);
+  --border: oklch(0.25 0.08 15); 
   --input: oklch(0.25 0.08 15 / 8%);
   --ring: oklch(0.55 0.15 15);
 
   --font-geist-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-geist-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-instrument: "Instrument Serif", serif; /* Updated Variable */
 }
 
 .dark {
-  /* Dark Theme - Desaturated for Eye Comfort */
-  --background: oklch(0.14 0.02 20);       /* Deep Charcoal Maroon */
-  --foreground: oklch(0.92 0.02 60);       /* Off-White Cream */
+  --background: oklch(0.14 0.02 20);
+  --foreground: oklch(0.92 0.02 60);
   
-  --primary: oklch(0.65 0.12 20);          /* Desaturated Soft Red */
+  --primary: oklch(0.65 0.12 20);
   --primary-foreground: oklch(0.14 0.02 20);
   
-  --accent: oklch(0.22 0.04 20);           /* Muted Surface Gray */
+  --accent: oklch(0.22 0.04 20);
   --accent-foreground: oklch(0.92 0.02 60);
 
-  --border: oklch(0.92 0.02 60 / 12%);
+  --border: oklch(0.92 0.02 60); 
   --ring: oklch(0.65 0.12 20);
 }
 
 @layer base {
+  /* Updated to Instrument Serif */
+  @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
   * {
     @apply border-border outline-ring/50;
   }
